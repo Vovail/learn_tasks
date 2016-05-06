@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+}
+.all {
+    width: 960px;
+    height: 883px;
+    background-image: url("images/homework3_bonus.jpg");
+    background-repeat: no-repeat;
+    margin: 0px auto;
+}
+.india {
+    position: relative;
+    top: 203px;
+    left: 70px;
+}
+.india a {
+    padding-right: 15px;
+}
+.nepal {
+    position: relative;
+    top: 255px;
+    left: 70px;
+}
+.nepal a {
+    padding-right: 15px;
+}

@@ -1,0 +1,92 @@
+body {
+    background-color: rgb(249, 249, 249);
+    font-size: small;
+    font-family: sans-serif;
+}
+.all {
+    background-color: rgb(255, 255, 255);
+    width: 970px;
+    padding: 50px 45px 50px 45px;
+    margin: 0 auto;
+    box-shadow: 0 0 2px grey;
+}
+.topNav {
+    width: 970px;
+    background-image: linear-gradient(#444343, #5e5e5e);
+    margin: 40px 0px;
+    height: 40px;
+}
+.topNav ul {
+    margin: 0px;
+    list-style-type: none;
+}
+.topNav li {
+    display: inline-block;
+    width: 140px;
+    height: 40px;
+    font-size: 160%;
+    text-align: center;
+    line-height: 40px;
+}
+.topNav li a {
+    color: white;
+    text-decoration: none;
+}
+.topNav li.selected {
+    background-image: linear-gradient(#2e2e2e, #4a4a4a);
+    border-left: thin solid #838383;
+    border-right: thin solid #838383;
+}
+aside {
+    float: left;
+    width: 240px;
+    border: thin solid #c8c8c8;
+}
+aside p {
+    border-bottom: thin solid #c8c8c8;
+    margin: 0px;
+    padding: 10px 10px 10px 20px;
+    font-size: 110%;
+}
+aside a {
+    text-decoration: none;
+    color: #656363;
+}
+aside .this a {
+    color: black;
+    padding-left: 20px;
+}
+aside p:last-child {
+    border-bottom: none;
+}
+section {
+    margin-left: 285px;
+    line-height: 200%;
+}
+section p:first-child {
+    border: thin solid #c8c8c8;
+    text-align: center;
+    padding: 50px 0px;
+}
+footer {
+    background-color: #e1e1e1;
+    height: 40px;
+}
+footer p {
+    display: inline;
+    height: 40px;
+    line-height: 40px;
+    font-size: 110%;
+    margin: 0px 35px;
+    color: #2c2c2c;
+}
+footer p:last-child {
+    padding-left: 220px;
+}
+footer a {
+    text-decoration: none;
+    color: #2c2c2c;
+}
+.footerSelect {
+    text-decoration: underline;
+}
