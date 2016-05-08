@@ -91,12 +91,12 @@ footer p {
     color: #2c2c2c;
 }
 footer p:last-child {
-    padding-left: 220px;
+float: right;
 }
 footer a {
     text-decoration: none;
     color: #2c2c2c;
 }
-footer p:hover {
+p.footmenu :hover {
     text-decoration: underline;
 }
