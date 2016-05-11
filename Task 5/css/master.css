@@ -1,0 +1,197 @@
+@font-face {font-family: "Helvetica Neue";
+    src: url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.eot");
+    src: url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.eot?#iefix") format("embedded-opentype"),
+    url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.woff2") format("woff2"),
+    url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.woff") format("woff"),
+    url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.ttf") format("truetype"),
+    url("http://db.onlinewebfonts.com/t/4b94982a9603dd89cf49dd9bcb0f0d60.svg#Helvetica Neue") format("svg");
+}
+
+body {
+    width: 1215px;
+    margin: 0px auto;
+    background-color: black;
+    font-family: "Helvetica Neue", Tahoma, sans-serif;
+    font-size: small;
+}
+body>header {
+    background-image: url(../images/backgroundtop.png);
+    width: 1215px;
+    height: 36px;
+}
+header nav {
+  float: right;
+}
+.left a {
+    display: inline-block;
+    height: 36px;
+    color: #60b5ed;
+    padding: 0px 10px;
+}
+nav li {
+    display: inline;
+    line-height: 36px;
+    height: 36px;
+}
+ul>li>img {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px 10px 6px 15px;
+    border-left: 1px solid #60b5ed;
+    margin: 0px 0px 5px 5px;
+}
+ul>li>a {
+    text-decoration: none;
+    color: white;
+}
+.left a:hover {
+    background-color: #4eabda;
+    color: white;
+}
+.right a {
+    display: inline-block;
+    height: 34px;
+    padding: 0px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+}
+header ul {
+    height: 36px;
+    margin: 0px;
+    padding: 0px 20px;
+}
+nav span {
+    border-bottom: 2px solid #a5b7d0;
+}
+.right a:hover {
+    background-image: linear-gradient(#51b1dc, #2e7ac4);
+    border: 1px solid #469bd4;
+}
+section {
+    background-image: url(../images/background2.jpg);
+    width: 1215px;
+    height: 1028px;
+    display: flex;
+}
+.loginform {
+    margin: auto;
+    width: 560px;
+    height: 610px;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+.loginform header {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 560px;
+    height: 60px;
+    margin: 0px 0px 2px 0px;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    font-size: 200%;
+}
+.loginform form {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 560px;
+    height: 545px;
+    text-align: center;
+    padding: 35px 0px 0px 0px;
+}
+.facebook {
+    border-radius: 3px;
+}
+.separator {
+    color: #999999;
+    font-size: 14px;
+    height: 15px;
+    line-height: 15px;
+    margin: 30px auto;
+}
+.separator img {
+    vertical-align: middle;
+    margin: 0px 7px;
+}
+input {
+    display: block;
+    outline: none;
+    height: 35px;
+    width: 245px;
+    margin: 16px auto;
+    background-image: linear-gradient(#111110, #141414);
+    color: #cccccc;
+    font-size: 16px;
+    padding: 0px 15px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #333333;
+}
+
+/*Можна всі відповідні інпути загнати в один клас і зробити селектор класом.
+ Але вирішив попробувати селектор по атрибутах*/
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+    background-image: linear-gradient(#1b5287, #1b5287);
+    color: #fffbfb;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0);
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.1) inset, 0px 0px 6px 2px #2f7bc5;
+}
+input::-webkit-input-placeholder {
+    color: white;
+}
+input::-moz-placeholder {
+    color: white;
+}
+input:-ms-placeholder {
+    color: white;
+}
+.sendme {
+    display: flex;
+    width: 275px;
+    line-height: 35px;
+    height: 35px;
+    margin: 10px auto;
+}
+.sendme input[type="checkbox"] {
+    display: inline-block;
+    margin: 0px 0px;
+    height: 14px;
+    width: 14px;
+    border: 1px double #8c8e8c;
+}
+.sendme span {
+    display: inline-block;
+    margin: auto 0px;
+    height: 13px;
+    width: 13px;
+    padding: 1px;
+    border: 1px solid #8c8e8c;
+    border-radius: 3px;
+    background-color: white;
+    line-height: 17px;
+}
+label {
+    display: inline-block;
+    color: #cccccc;
+    font-size: 16px;
+    margin: auto 0px auto 5px;
+}
+input[type="submit"] {
+    display: block;
+    background-image: linear-gradient(#50aedb, #2e7ac4);
+    width: 150px;
+    height: 35px;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 0px;
+    color: white;
+    border: none;
+    border-top: 1px solid #6bb8e7;
+}
+.foot {
+    color: #ccc;
+    font-size: 12px;
+    margin: 20px auto 6px auto;
+}
+form p:last-child {
+    margin-top: 6px;
+}

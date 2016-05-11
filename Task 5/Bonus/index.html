@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Композиция с красным, синим и желтым</title>
+    <link rel="stylesheet" href="normalize2.css">
+    <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+    <table>
+        <caption></caption>
+        <tr class="row1">
+            <td colspan="2" id="first">1</td>
+            <td colspan="3">2</td>
+            <td colspan="2" class="yellow" id="three">3</td>
+        </tr>
+        <tr>
+            <td rowspan="2" id="four">4</td>
+            <td colspan="4" rowspan="3" class="red" id="five">5</td>
+            <td colspan="2" rowspan="2" class="yellow">6</td>
+        </tr  class="row2">
+        <tr class="row3"></tr>
+        <tr>
+            <td rowspan="2">7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr class="row5">
+            <td class="grey">10</td>
+            <td class="grey" id="eleven">11</td>
+            <td colspan="2">12</td>
+            <td colspan="2">13</td>
+        </tr>
+        <tr class="row6">
+            <td rowspan="3" class="yellow">14</td>
+            <td class="grey">15</td>
+            <td class="grey">16</td>
+            <td colspan="2">17</td>
+            <td colspan="2" rowspan="2" class="blue">18</td>
+        </tr>
+        <tr class="row7">
+            <td colspan="2" rowspan="2">19</td>
+            <td colspan="2" class="grey" id="col2">20</td>
+        </tr>
+        <tr class="row8">
+            <td colspan="4">21</td>
+        </tr>
+    </table>
+</body>
+
+</html>
