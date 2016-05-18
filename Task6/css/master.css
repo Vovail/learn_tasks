@@ -1,0 +1,786 @@
+@font-face {
+    font-family: "Lucida Sans Unicode";
+    /*  src: url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.eot");
+    src: url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.eot?#iefix") format("embedded-opentype"),
+    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.woff2") format("woff2"),
+    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.woff") format("woff"),
+    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.ttf") format("truetype"),
+    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.svg#Lucida Sans Unicode") format("svg");*/
+    src: url(../fonts/LucidaSansUnicodeV1.woff2) format("woff2"), url(../fonts/LucidaSansUnicodeV1.woff) format("woff"), url(../fonts/l_10646.ttf) format("ttf");
+}
+body {
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: small;
+    width: 1000px;
+    margin: 0px auto;
+}
+.tophead {
+    margin: 8px 0px 11px 0px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0px;
+}
+.tophead form, .tophead div, .tophead p {
+    display: inline-block;
+}
+.tophead p {
+    font-family: Arial;
+    font-size: 19px;
+    height: 26px;
+    line-height: 26px;
+    color: #5e696d;
+    vertical-align: middle;
+}
+.tophead p:first-child {
+    margin: 5px 0px 5px 7px;
+    vertical-align: middle;
+}
+.tophead p:nth-child(2) {
+    margin: -1px 0px 0px -1px;
+}
+.tophead form {
+    position: relative;
+    bottom: 3px;
+    width: 495px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #b1bcc0;
+    background-image: linear-gradient(to bottom, #206988, #114165 59%, #0c3256);
+    border-radius: 4px/3px;
+    box-shadow: 2px 3px 3px rgba(150, 150, 150, .75);
+    margin: 0px 0px 0px 11px;
+    padding: 1px 0px 0px 0px;
+}
+.tophead form img {
+    vertical-align: middle;
+    margin: -1px 0px auto 7px;
+}
+.tophead input {
+    width: 110px;
+    height: 16px;
+    font-size: 12px;
+    border-radius: 1px;
+    padding: 0px 0px 0px 3px;
+    margin: 0px;
+    border: none;
+}
+.login {
+    position: relative;
+    bottom: 1px;
+}
+.password {
+    position: relative;
+    left: 4px;
+    bottom: 1px;
+}
+.enter {
+    position: relative;
+    bottom: 1px;
+    color: white;
+    font-size: 11px;
+}
+.enter a {
+    font-family: "Lucida Sans Unicode";
+    font-size: 11px;
+    color: white;
+    text-decoration: none;
+}
+.enter a:first-child {
+    padding-left: 8px;
+    padding-right: 2px;
+}
+.enter a:nth-child(2) {
+    padding-left: 3px;
+}
+.forgotpassword {
+    position: relative;
+    left: 15px;
+    bottom: 1px;
+}
+.forgotpassword a {
+    font-family: "Lucida Sans Unicode";
+    font-size: 12px;
+    color: #bfbfbf;
+    padding: 0px 0px 0px 0px;
+}
+.mininav {
+    position: relative;
+    border: 1px solid #c1c8cb;
+    border-radius: 10px;
+    width: 75px;
+    height: 20px;
+    text-align: center;
+    line-height: 25px;
+    vertical-align: middle;
+    left: 13px;
+    bottom: 5px;
+}
+.mininav a {
+    position: relative;
+    bottom: 3px;
+    padding: 0px 5px 0px 0px;
+}
+.logo {
+    background-image: url(../images/headerground.png);
+    width: 908px;
+    height: 237px;
+    margin-left: 1px
+}
+.site {
+    padding-top: 30px;
+    width: 265px;
+    height: 90px;
+    background-image: linear-gradient(to bottom right, #000d1a, #0b3050);
+}
+.logo a {
+    display: block;
+    position: relative;
+    top: 48px;
+    font-family: "Lucida Sans Unicode", Arial, sans-serif;
+    width: 265px;
+    height: 120px;
+    text-align: center;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 24px;
+}
+.site p {
+    position: relative;
+    top: 15px;
+    font-size: 30px;
+}
+.site p span:first-child {
+    font-size: 55px;
+}
+.site p span:nth-child(2) {
+    position: relative;
+    bottom: 6px;
+    right: 3px;
+    display: block;
+    color: #b31400;
+    text-align: right;
+    height: 18px;
+    width: 265px;
+    font-size: 25px;
+}
+nav.topmenu {
+    position: relative;
+    right: 1px;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #000, #576068);
+    border-radius: 5px/3px 3px 2px 2px;
+    border: solid 1px #0d1642;
+    width: 910px;
+    height: 31px;
+    margin-top: 6px;
+    padding: 0px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, .75);
+}
+.topmenu ul {
+    height: 31px;
+    margin: 0px;
+    color: #b1bcc0;
+    padding: 0px 0px 0px 100px;
+}
+.menu {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    bottom: 1px;
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+}
+.menu a {
+    font-family: "Lucida Sans Unicode";
+    display:  block;
+    height: 30px;
+    color: #b1bcc0;
+    padding: 0px 18px;
+    margin: 0px;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 31px;
+}
+.menu a:hover {
+    background-image: linear-gradient(to bottom, #206988, #114165 59%, #0c3256);
+    color: white;
+    height: 25px;
+    border-radius: 12px/13px;
+    padding: 0px 18px;
+    margin: 0px;
+    line-height: 25px;
+}
+#menulink1 {
+    position: relative;
+    left: 30px;
+}
+#menulink2 {
+    position: relative;
+    left: 29px;
+}
+#menulink3 {
+    position: relative;
+    left: 21px;
+}
+#menulink4 {
+    position: relative;
+    left: 14px;
+}
+#menulink5 {
+    position: relative;
+    left: 1px;
+}
+ul>li>img {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px 5px 6px 40px;
+    margin: 0px 0px 5px 5px;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+.menuright {
+  display: inline-block;
+    font-size: 11px;
+    margin-left: 9px;
+}
+#menulink6 {
+    display: inline-block;
+    position: relative;
+    left: 1px;
+    bottom: 2px;
+}
+#menulink7 {
+    display: inline-block;
+    position: relative;
+    right: 3px;
+    bottom: 1px;
+}
+#menulink8 {
+    left: 5px;
+}
+.menuright span:last-child {
+    display: inline-block;
+    position: relative;
+    bottom: 1px;
+    font-family: Arial;
+    font-size: 12px;
+    color: #0d5a8f;
+    padding-left: 3px;
+    padding-right: 8px;
+}
+
+/*Find forms styles*/
+
+.find {
+    margin-left: 4px;
+    margin-top: 13px;
+}
+.find form {
+    display: inline-block;
+    border: solid 1px #9c9c9d;
+    border-radius: 14px/18px 18px 17px 17px;
+    box-shadow: 3px 4px 5px rgba(150, 150, 150, .75);
+}
+.find h3 {
+    font-family: "Arial Black";
+    font-size: 12px;
+    color: #154467;
+}
+.find h4 {
+    font-family: "Arial Black";
+    font-size: 10px;
+    color: #154468;
+}
+.findbyauto h4, .findbyauto h3 {
+    display: inline-block;
+}
+.findbyauto h3 {
+    margin: 0px 72px 0px 66px;
+}
+.findbyauto {
+    width: 383px;
+    height: 132px;
+    box-shadow: 3px 4px 5px rgba(104, 104, 104, .75);
+    margin-right: 12px;
+    padding: 0px 13px 0px 17px;
+}
+.one {
+    position: relative;
+    left: 3px;
+    top: 3px;
+}
+.findtires {
+    width: 191px;
+    height: 135px;
+    margin-right: 8px;
+    border-radius: 17px/19px;
+}
+.finddisc {
+    width: 266px;
+    height: 134px;
+}
+.alltable {
+    display: table;
+    margin-top: 4px;
+    border-spacing: 5px;
+}
+.tablerow {
+    display: table-row;
+}
+.tablerow p {
+    display: table-cell;
+    font-family: "Arial Regular";
+    color: black;
+    font-size: 10px;
+    vertical-align: middle;
+}
+.tablerow p span {
+    color: #77858b;
+    font-size: 9px;
+}
+.findbyauto p:nth-child(2n+1) {
+    width: 75px;
+}
+.findbyauto p:nth-child(3) {
+    width: 75px;
+    padding-left: 28px;
+}
+.findbyauto select {
+    width: 99px;
+    height: 15px;
+    font-size: 10px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+}
+.find option {
+    font-size: 10px;
+}
+.findbyauto .yearselect {
+    width: 55px;
+}
+.submit {
+    border: none;
+    text-decoration: underline;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Arial", sans-serif;
+    ;
+    font-size: 14px;
+    font-style: italic;
+    color: #154467;
+    padding-left: 40px;
+}
+.findtires h3 {
+    padding-left: 10px;
+}
+.sizefindtire {
+    width: 50px;
+}
+.topalign {
+    vertical-align: top;
+    padding-bottom: 30px;
+}
+.radiusrightalign {
+    text-align: right;
+    font-size: 11px;
+    font font-family: "Arial"
+}
+.checkbox input {
+    padding: 0px;
+    margin: 0px;
+    vertical-align: middle;
+}
+.findtires .submit {
+    padding-left: 20px;
+    padding-top: 2px;
+}
+.findtires .alltable {
+    border-spacing: 5px;
+    margin-left: 13px;
+    font-size: 10px;
+
+}
+.findtires select {
+    height: 15px;
+    font-size: 11px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+}
+.findtires label {
+    font-size: 12px;
+}
+
+/* "Find Disc" form styles */
+
+.finddisc h3 {
+    padding-left: 10px;
+    margin-right: 110px;
+}
+.finddisc .alltable {
+    width: 150px;
+    margin-left: 5px;
+    border-spacing: 3px;
+}
+.finddisc select {
+    width: 55px;
+    font-size: 11px;
+    font-family: Arial;
+}
+.finddiscfloat {
+    float: right;
+    width: 75px;
+    border-left: 1px solid #bdc6ca;
+    padding-left: 5px;
+    margin-right: 0px;
+    margin-top: 5px;
+    line-height: 10px;
+}
+.finddiscfloat label {
+    font-size: 9px;
+}
+.finddiscfloat label span {
+    font-size: 8px;
+    color: #77858b;
+}
+.finddiscfloat select {
+    width: 55px;
+    font-size: 11px;
+    font-family: Arial;
+}
+#finddischolecount {
+    width: 48px;
+}
+.finddisc>div:last-child {
+    width: 245px;
+    height: 20px;
+    clear: right;
+    margin-left: 10px;
+}
+.finddisc>div .submit {
+    float: right;
+    width: 50px;
+    height: 16px;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*Main section styles*/
+
+main {
+    margin: 16px 0px;
+    width: 911px;
+}
+
+/*Left menu styles*/
+
+.leftmenu {
+    width: 181px;
+    float: left;
+}
+.leftmenu h2, .rightfindbrand h2 {
+    width: 181px;
+    height: 25px;
+    border-radius: 12px/12px 12px 13px 13px;
+    box-shadow: 2px 3px 3px rgba(150, 150, 150, .75);
+    border: solid 1px #79878d;
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 13px;
+    /*font-family: "Lucida Sans Unicode";*/
+    font-size: 13px;
+    line-height: 25px;
+    color: #114165;
+    overflow: hidden;
+    /* всё, что выходит за рамки блока обрезается */
+    white-space: nowrap;
+    /* блок может содержать не более одной строки */
+}
+.leftmenu h2 img, .rightfindbrand h2 img {
+    display: inline-block;
+    padding: 0px 1px 0px 0px;
+    margin: 0px 0px 5px 0px;
+    vertical-align: middle;
+}
+.h2imgleft {
+  position: relative;
+  left: 1px;
+}
+.h2textleft {
+  position: relative;
+  right: 1px;
+}
+.leftmenu h2 span, .rightfindbrand h2 span {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px 0px 2px 1px;
+    vertical-align: middle;
+}
+.leftmenu h3, .rightfindbrand h3 {
+    display: flex;
+    width: 148px;
+    height: 26px;
+    border-radius: 11px/13px;
+    border: solid 1px #79878d;
+    margin-left: 1px;
+    font-size: 15px;
+    line-height: 25px;
+    color: #114165;
+}
+.leftmenu h3 img, .rightfindbrand h3 img {
+    display: inline-block;
+    padding: 1px 1px 0px 1px;
+    margin: 0px 0px 2px 1px;
+}
+.h3imglefttire {
+  position: relative;
+  left: 2px;
+}
+.h3textlefttire {
+  position: relative;
+  left: 1px;
+}
+.h3imgleftdisc {
+  position: relative;
+  left: 1px;
+}
+.h3textleftdisc {
+  position: relative;
+  left: 1px;
+}
+.h3leftbolt {
+  margin-top: -1px;
+}
+.h3imgleftbolt {
+  position: relative;
+left: 1px;
+}
+.h3textleftbolt {
+  position: relative;
+  left: 1px;
+}
+.leftmenu h3 span, .rightfindbrand h3 span {
+    display: inline-block;
+    padding: 0px;
+    margin: 2px 0px 0px 1px;
+}
+.leftmenu li {
+    list-style-type: circle;
+    padding-left: 0px;
+    margin-left: 48px;
+    /*  font-size: 14px;
+    /*  line-height: 28px;*/
+}
+.leftmenu li a {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 25px;
+    color: #465961;
+    /*line-height: 16px;*/
+}
+.leftmenu a:hover {
+    line-height: 25px;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    color: #0c3256;
+}
+
+/*Rifght-side checkbox panel styles*/
+
+.rightfindbrand {
+    float: right;
+    width: 181px;
+    line-height: 25px;
+    margin-right: 5px;
+}
+.rightfindbrand form div {
+    margin-left: 24px;
+}
+.rightfindbrand h3 {
+    width: 134px;
+    margin-left: 15px;
+    margin-bottom: 3px;
+}
+.rightfindbrand h3.rightfinddisc {
+    margin-top: 7px;
+}
+.h2right {
+  position: relative;
+  bottom: 2px;
+}
+.h2rightimg {
+  position: relative;
+  left: 4px;
+}
+.h2righttext {
+  position: relative;
+  left: 3px;
+  font-size: 14px;
+}
+.h3righttire {
+  position: relative;
+  bottom: 1px;
+  left: 1px;
+}
+.h3rightimgtire {
+  position: relative;
+  left: 2px;
+}
+.h3righttexttire {
+  position: relative;
+  left: 3px;
+}
+
+.rightfindbrand form input[type="submit"] {
+  position: relative;
+  left: 2px;
+  bottom: 1px;
+    width: 80px;
+    height: 25px;
+    border-radius: 10px/11px;
+    background-color: #000;
+    border: solid 1px #a7abae;
+    background-image: linear-gradient(to bottom, #206988, #114165 59%, #0c3256);
+    color: #e5e9ea;
+    font-family: Arial;
+    font-size: 11px;
+    box-shadow: 0px 3px 0px #cecece;
+}
+label {
+    color: #465961;
+    font-size: 13px;
+}
+.last {
+    margin-top: 17px;
+    margin-left: 24px;
+}
+
+/*Section Goods styles*/
+
+.goods {
+    width: 526px;
+    height: 627px;
+    border-radius: 3px/2px 2px 3px 3px;
+    background-image: linear-gradient(to top, rgba(35, 75, 93, .49), rgba(201, 207, 209, .49));
+    margin-left: 192px;
+    border-spacing: 0px;
+}
+.goods>div {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 160px;
+    /*padding-bottom: 15px;
+    margin: 12px 0px 0px 0px;*/
+}
+.goods>div h4 {
+    font-size: 16px;
+    line-height: 14px;
+    color: #206988;
+}
+.goods>div h5 {
+    font-size: 13px;
+    line-height: 14px;
+    color: #1f2528;
+    padding-left: 6px;
+}
+.goods>div p {
+    color: #114165;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 11px;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+.goods>div p span {
+    font-size: 13px;
+}
+.tireimg {
+    display: flex;
+    width: 136px;
+    height: 127px;
+    border-radius: 7px/8px 8px 7px 7px;
+    background-color: #fff;
+    border: solid 1px #a4aeb1;
+    padding: 0px;
+    margin: auto;
+}
+.tireimg img {
+    margin: auto;
+}
+.tablecell1 {
+    margin: 12px 0px 0px 9px;
+}
+.tablecell2 {
+    margin: 10px 0px 0px 5px;
+}
+.tablecell3 {
+    margin: 10px 0px 0px 4px;
+}
+.tablecell4 {
+    margin: 28px 0px 0px 9px;
+}
+.tablecell5 {
+    margin: 26px 0px 0px 4px;
+}
+.tablecell6 {
+    margin: 26px 0px 0px 5px;
+}
+.tablecell7 {
+    margin: 28px 0px 0px 9px;
+}
+.tablecell8 {
+    margin: 26px 0px 0px 4px;
+}
+.tablecell9 {
+    margin: 26px 0px 0px 5px;
+}
+
+/*Footer style*/
+
+.brandline {
+    margin-top: 35px;
+    margin-bottom: 22px;
+    width: 908px;
+    text-align: center;
+}
+.foot {
+    width: 908px;
+    height: 98px;
+    background-color: #213a4d;
+    border: solid 1px #242a3c;
+}
+.bottommenu {
+    width: 908px;
+    text-align: center;
+    color: #bec6c9;
+    padding-top: 11px;
+}
+.bottommenu a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Arial";
+    font-size: 12px;
+    color: #bec6c9;
+    margin: 0px 12px;
+}
+.bottommenu a:hover {
+    color: #52abcb;
+}
+footer p {
+    width: 908px;
+    text-align: center;
+    font-size: 10px;
+    color: #7f4740;
+    font-family: "Arial";
+    margin: 17px 0px 0px 0px;
+}
