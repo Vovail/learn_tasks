@@ -1,0 +1,26 @@
+.answer {
+    margin-left: 50px;
+}
+.formElement {
+    width: 600px;
+    margin: 20px auto;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 0px 20px 20px 20px;
+    background-color: rgba(10, 139, 144, 0.3);
+}
+h1 {
+    text-align: center;
+}
+input[type="submit"] {
+    /*margin-left: auto;
+  margin-right: auto;*/
+    margin: auto;
+    width: 180px;
+    display: block;
+
+}
+.checkbox input[type=checkbox] {
+    margin-left: -10px;
+    background: blue;
+}

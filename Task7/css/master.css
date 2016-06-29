@@ -53,8 +53,8 @@ body {
     background-color: #ececec;
     height: 396px;
 }
-@media screen and (max-width:320px) {}
-@media screen and (min-width:480px) and (max-width: 767px) {
+/*@media screen and (max-width:320px) {}*/
+@media screen and (max-width: 767px) {
     .top__head {
         width: 91.66%;
         margin: auto;
@@ -1157,11 +1157,11 @@ body {
     }
     .top__head__nav li {
         display: inline-block;
-        margin: 0px 9px 0px 25px;
+        margin: 0px 1% 0px 20px;
     }
     .top__head__nav li a {
         font-size: 24px;
-        letter-spacing: 0px;
+        letter-spacing: -1px;
         text-transform: uppercase;
         text-decoration: none;
         color: #fff;
@@ -1243,7 +1243,7 @@ body {
         margin: auto;
         height: 70px;
         text-align: right;
-        padding: 100px 190px 0px 0px;
+        padding: 100px 0px 0px 0px;
     }
     .top__pointlink a {
         text-decoration: none;
@@ -1326,7 +1326,7 @@ body {
         background-position: -140px 0px;
     }
     .bottom__content {
-        width: 960px;
+        width: 949px;
         margin: auto;
     }
     .bottom__content h1 {
@@ -1449,8 +1449,8 @@ body {
     }
     .bottom__logoline {
         margin: auto;
-        width: 960px;
-        padding-left: 94px;
+        width: 866px;
+        padding-left: 50px;
         margin-top: 50px;
     }
     .bottom__logoline div {
@@ -1491,15 +1491,16 @@ body {
         width: 105px;
         height: 67px;
     }
-    .bottom__logoline_logo6 {
+    div.bottom__logoline_logo6 {
         display: inline-block;
         background-image: url(../images/sprite.png);
         background-position: -158px -151px;
         width: 82px;
         height: 64px;
+        margin-right: 0px;
     }
     .bottom__prelast {
-        width: 960px;
+        width: 949px;
         margin: auto;
         white-space: nowrap;
         padding-top: 100px;
@@ -1509,7 +1510,7 @@ body {
     }
     .bottom__prelast article {
         display: inline-block;
-        width: 280px;
+        width: 275px;
         height: 199px;
         text-align: left;
         overflow: hidden;
@@ -1546,14 +1547,14 @@ body {
         margin-bottom: 6px;
     }
     .bottom__prelast__part2 {
-        margin: 0px 60px;
+        margin: 0px 50px;
     }
     .bottom__footer {
-        width: 960px;
+        width: 949px;
         height: 70px;
         margin: auto;
-        padding-top: 45px;
-    }
+        padding: 45px 0px 0px;
+        }
     .bottom__footer__designed {
         float: right;
         font-size: 12px;
