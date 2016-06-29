@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <ul>
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script type="text/javascript">
+  var lis=document.getElementsByTagName('li');
+  for (var i=0;i<lis.length;i++) {
+    alert(lis[i].firstChild.data.trim() + ": " + lis[i].getElementsByTagName('li').length);
+  }
+  // 1
+// document.getElementById('age-table').getElementsByTagName('label');
+//
+// // 2
+// document.getElementById('age-table').getElementsByTagName('td')[0];
+// // в современных браузерах можно одним запросом:
+// var result = document.querySelector('#age-table td');
+//
+// // 3
+// document.getElementsByTagName('form')[1];
+//
+// // 4
+// document.querySelector('form[name="search"]');
+//
+// // 5
+// document.querySelector('form[name="search"] input')
+//
+// // 6
+// document.getElementsByName("info[0]")[0];
+//
+// // 7
+// document.querySelector('form[name="search-person"] [name="info[0]"]');
+
+  </script>
+</body>
+
+</html>

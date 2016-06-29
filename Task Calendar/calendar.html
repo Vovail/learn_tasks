@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Create Calendar</title>
+    <style media="screen">
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+          background-color: grey;
+          width: 40px;
+            border: 1px solid black;
+        }
+        tr {height:40px;}
+        td {
+          text-align: center;
+          border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function createCalendar(id, year, month) {
+            var days = ['Md', 'Tue', 'Wed', 'Th', 'Fr', 'St', 'Su'];
+            var div = document.createElement('div');
+            div.id = id;
+            document.body.appendChild(div);
+            var table = document.createElement('table');
+            div.appendChild(table);
+            var thRow = document.createElement('tr');
+            table.appendChild(thRow);
+            for (var i = 0; i < 7; i++) {
+                var th = document.createElement('th');
+                th.innerHTML = days[i];
+                thRow.appendChild(th);
+            }
+            var firstDate=new Date(year, month, 1);
+            var day=firstDate.getDay();
+            if (day===0) day=7;
+            var currentDate=firstDate;
+            var j=day-1;
+
+            var arr=[];
+            i=1;
+            while (currentDate.getMonth()===month) {
+              if (j>0) {
+                for (var k=1;k<=j;k++) {
+                  arr.push('');
+                }
+                j=0;
+              }
+              arr.push(currentDate.getDate());
+              currentDate=new Date (currentDate.getFullYear(), currentDate.getMonth(), i+1);
+              i++;
+            }
+
+            j=0;
+            while (j<arr.length) {
+              var row=document.createElement('tr');
+              table.appendChild(row);
+              for (i=0;i<7;i++) {
+                if (arr[j]===undefined) arr[j]="";
+                var td = document.createElement('td');
+                td.innerHTML=arr[j];
+                row.appendChild(td);
+                j++;
+              }
+          }
+        }
+        createCalendar('cal', 2015, 2);
+        createCalendar('cal2', 2015, 3);
+    </script>
+
+</body>
+
+</html>
