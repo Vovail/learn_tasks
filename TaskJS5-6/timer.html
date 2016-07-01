@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>timer</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style media="screen">
+        #timer {
+            font-size: 50px;
+            font-weight: bold;
+            font-family: monospace;
+            color: blue;
+        }
+
+        .all {
+            width: 350px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        body {
+            background-color: rgb(28, 32, 28)
+        }
+
+        .dataContainer {
+            color: rgb(214, 219, 94);
+            font-weight: bold;
+            font-size: 20px;
+            text-align: left;
+            margin-left: 100px;
+        }
+
+        input.btn-danger {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div id="timer">
+            <span class="min">00</span>:<span class="sec">00</span>:<span class="msec">00</span>
+        </div>
+        <div class="">
+            <input type="button" class="first start btn btn-danger" name="startPause" value="START" onclick="clockStart()">
+            <input type="button" class="split btn btn-danger" name="split" value="SPLIT" onclick="split()">
+            <input type="button" class="reset btn btn-danger" name="reset" value="RESET" onclick="reset()">
+        </div>
+        <div class="dataContainer">
+        </div>
+    </div>
+    <script type="text/javascript">
+        var min = 0;
+        var sec = 0;
+        var ms = 0;
+
+        function startTimer() {
+            ms = ms + 10;
+            if (ms === 1000) {
+                sec = sec + 1;
+                ms = 0;
+            }
+            if (sec === 60) {
+                min = min + 1;
+                sec = 0;
+            }
+            if (ms < 100) {
+                timer.children[2].innerHTML = "0" + Math.round(ms / 10);
+            } else {
+                timer.children[2].innerHTML = Math.round(ms / 10);
+            }
+            if (sec < 10) {
+                timer.children[1].innerHTML = "0" + sec;
+            } else {
+                timer.children[1].innerHTML = sec;
+            }
+            if (min < 10) {
+                timer.children[0].innerHTML = "0" + min;
+            } else {
+                timer.children[0].innerHTML = min;
+            }
+        }
+
+        function clockStart() {
+            isTimerWorking = true;
+            timerId = setInterval(startTimer, 10);
+            var button = document.querySelector('.start')
+            button.value = "STOP";
+            button.className = 'first pause btn btn-danger';
+            setTimeout(function() {
+                button.onclick = clockStop;
+            }, 0);
+        }
+
+        function clockStop() {
+            clearInterval(timerId);
+            isTimerWorking = false;
+            str = stopCount + ' STOP: ' + timer.children[0].innerHTML + ':' + timer.children[1].innerHTML + ':' + timer.children[2].innerHTML;
+            var data = document.createElement('div');
+            data.innerHTML = str;
+            document.querySelector('.dataContainer').appendChild(data);
+            stopCount += 1;
+            var button = document.querySelector('.pause')
+            button.value = "START";
+            button.className = 'first start btn btn-danger';
+            setTimeout(function() {
+                button.onclick = clockStart;
+            }, 0)
+        }
+
+        function split() {
+            if (!isTimerWorking) {
+                return;
+            }
+            str = stopCount + '  SPLIT:  ' + timer.children[0].innerHTML + ':' + timer.children[1].innerHTML + ':' + timer.children[2].innerHTML;
+            var data = document.createElement('div');
+            data.innerHTML = str;
+            document.querySelector('.dataContainer').appendChild(data);
+            stopCount += 1;
+        }
+
+        function reset() {
+            clearInterval(timerId);
+            document.querySelector('.dataContainer').innerHTML = "";
+            timer.children[0].innerHTML = '00';
+            timer.children[1].innerHTML = '00';
+            timer.children[2].innerHTML = '00';
+            var button = document.querySelector('.first')
+            button.value = "START";
+            button.className = 'first start btn btn-danger';
+            button.onclick = clockStart;
+            stopCount = 1;
+            min = 0;
+            sec = 0;
+            ms = 0;
+        }
+        var isTimerWorking = false;
+        var stopCount = 1;
+        var str;
+        var timerId;
+    </script>
+</body>
+
+</html>

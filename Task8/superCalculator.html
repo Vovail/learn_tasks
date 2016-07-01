@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>calc</title>
+    <style media="screen">
+        .screen {
+            width: 196px;
+            height: 40px;
+            text-align: right;
+            font-size: 20px;
+        }
+
+        input[type="button"] {
+            width: 40px;
+            height: 40px;
+        }
+        #reset {width: 200px;}
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var div = document.createElement('div');
+        var div1 = document.createElement('div');
+        var div2 = document.createElement('div');
+        var divOp = document.createElement('div');
+        var divReset = document.createElement('div');
+        var inputScreen = document.createElement('input');
+        inputScreen.className = 'screen';
+        div.appendChild(inputScreen);
+
+        var button = [];
+
+        for (var i = 0; i < 10; i++) {
+            button[i] = document.createElement('input');
+            button[i].type = 'button';
+            button[i].value = i;
+            button[i].onclick = addSymbol;
+            if (i < 5) {
+                div1.appendChild(button[i]);
+            } else {
+                div2.appendChild(button[i]);
+            }
+        }
+
+        var buttonPlus = document.createElement('input');
+        buttonPlus.type = 'button';
+        buttonPlus.value = '+';
+        buttonPlus.onclick = addSymbol;
+        divOp.appendChild(buttonPlus);
+        var buttonMinus = document.createElement('input');
+        buttonMinus.type = 'button';
+        buttonMinus.value = '-';
+        buttonMinus.onclick = addSymbol;
+        divOp.appendChild(buttonMinus);
+        var buttonMnog = document.createElement('input');
+        buttonMnog.type = 'button';
+        buttonMnog.value = '*';
+        buttonMnog.onclick = addSymbol;
+        divOp.appendChild(buttonMnog);
+        var buttonDevide = document.createElement('input');
+        buttonDevide.type = 'button';
+        buttonDevide.value = '/';
+        buttonDevide.onclick = addSymbol;
+        divOp.appendChild(buttonDevide);
+        var buttonEqual = document.createElement('input');
+        buttonEqual.type = 'button';
+        buttonEqual.value = '=';
+        buttonEqual.onclick = calculate;
+        divOp.appendChild(buttonEqual);
+
+        var buttonReset = document.createElement('input');
+        buttonReset.id='reset';
+        buttonReset.type = 'button';
+        buttonReset.value = 'RESET';
+        buttonReset.onclick = function() {inputScreen.value=""};
+        divReset.appendChild(buttonReset);
+
+        function calculate() {
+            var arr = [];
+            arr = inputScreen.value.split(' ');
+            if (isNaN(+arr[0]) || isNaN(+arr[2])) {
+              inputScreen.value='you input the wrong string';
+              return;
+            }
+            var calc = {
+                '+': function() {
+                    return +arr[0] + +arr[2];
+                },
+                '-': function() {
+                    return +arr[0] - +arr[2];
+                },
+                '*': function() {
+                    return +arr[0] * +arr[2];
+                },
+                '/': function() {
+                    return +arr[0] / +arr[2];
+                }
+            }
+            var result = calc[arr[1]]();
+            inputScreen.value=result;
+        }
+
+        function addSymbol() {
+            if (isNaN(+this.value)) {
+                inputScreen.value += ' ' + this.value + ' ';
+            } else {
+                inputScreen.value += this.value;
+            }
+        }
+
+        document.body.appendChild(div);
+        document.body.appendChild(div1);
+        document.body.appendChild(div2);
+        document.body.appendChild(divOp);
+        document.body.appendChild(divReset);
+    </script>
+</body>
+
+</html>

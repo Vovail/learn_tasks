@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        span {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="">
+        <span id="spanClose">▶</span><span id="spanOpen" hidden="true">▼</span>Сладости (нажми меня)!
+    </div>
+    <ul hidden="true">
+        <li>Торт</li>
+        <li>Пончик</li>
+        <li>Пирожное</li>
+    </ul>
+    <script type="text/javascript">
+        function openCloseList() {
+          var elem=document.querySelector('ul');
+            if (elem.hidden) {
+                elem.hidden = false;
+                spanOpen.hidden = false;
+                spanClose.hidden = true;
+            } else {
+                elem.hidden = true;
+                spanOpen.hidden = true;
+                spanClose.hidden = false;
+            }
+        }
+
+        var div = document.querySelector('div');
+        div.addEventListener("click", openCloseList);
+    </script>
+
+</body>
+
+</html>

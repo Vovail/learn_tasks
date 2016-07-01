@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>pifagor</title>
+    <style media="screen">
+        body {
+            font-size: 20px;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        td {
+            width: 30px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr:first-child {
+            font-weight: bold;
+            background-color: grey;
+        }
+
+        tr td:first-child {
+            font-weight: bold;
+            background-color: grey;
+        }
+
+        .number {
+            width: 100px;
+            text-align: center;
+        }
+
+        input[type="button"] {
+            width: 50px;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var div = document.createElement('div');
+        var input1 = document.createElement('input');
+        input1.className = 'number';
+        var input2 = document.createElement('input');
+        input2.className = 'number';
+        var button = document.createElement('input');
+        button.type = 'button';
+        button.value = 'Create';
+        button.onclick = createPifagor;
+
+        div.appendChild(input1);
+        div.appendChild(input2);
+        div.appendChild(button);
+        document.body.appendChild(div);
+
+        function createPifagor() {
+            if (document.body.querySelector('#pifagor')) {
+                document.body.removeChild(document.body.querySelector('#pifagor'));
+            }
+            var a = +input1.value;
+            var b = +input2.value;
+
+            var table = document.createElement('table');
+            table.id='pifagor';
+            for (var i = 0; i <= a; i++) {
+                var tr = document.createElement('tr');
+                for (var j = 0; j <= b; j++) {
+                    var td = document.createElement('td');
+                    tr.appendChild(td);
+                    if (i === 0) {
+                        td.innerHTML = j;
+                        continue;
+                    }
+                    if (j === 0) {
+                        td.innerHTML = i;
+                    } else {
+                        td.innerHTML = i * j;
+                    }
+                }
+                table.appendChild(tr);
+            }
+
+            document.body.appendChild(table);
+        }
+    </script>
+</body>
+
+</html>
