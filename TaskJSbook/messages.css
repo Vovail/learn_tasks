@@ -22,6 +22,11 @@ p {
 }
 
 .remove-button {
+
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
   font-size: 110%;
   color: darkred;
   right: 10px;

@@ -1,0 +1,15 @@
+.niceCheck {
+    position: relative;
+    top: 3px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    cursor: pointer;
+    background: url(../images/OSX-Checkbox-OFF.png);
+    background-size: cover;
+		margin-right: 5px;
+}
+
+.niceCheck input {
+display: none;
+}

@@ -1,0 +1,22 @@
+.checkboxCSS input[type=checkbox] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+.checkboxCSS label {
+    cursor: pointer;
+}
+.checkboxCSS label:before {
+    content: " ";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/OSX-Checkbox-OFF.png);
+    background-size: cover;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+.checkboxCSS input[type=checkbox]:checked + label:before {
+    background: url(../images/OSX-Checkbox-ON.png);
+    background-size: 17px 17px;
+}
