@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .selected {
+            background: #0f0;
+        }
+
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    Клик на элементе выделяет только его.
+    <br> Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
+    <br> Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+    <br>
+
+    <ul>
+        <li>Кристофер Робин</li>
+        <li>Винни-Пух</li>
+        <li>Ослик Иа</li>
+        <li>Мудрая Сова</li>
+        <li>Кролик. Просто кролик.</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector("ul");
+        var previosLi = "";
+        var curentIndex, previousIndex;
+        ul.onclick = function(e) {
+            if (e.target.tagName != "LI") return;
+            if (e.ctrlKey || e.metaKey) {
+                e.target.classList.toggle('selected');
+            } else if (e.shiftKey) {
+                e.preventDefault();
+                if (previosLi == "") {
+                    var selected = document.getElementsByClassName('selected');
+                    for (var i = 0; i < selected.length;) {
+                        selected[0].classList.remove('selected');
+                    }
+                    e.target.classList.add('selected');
+                } else {
+                    var selected = document.getElementsByClassName('selected');
+                    for (var i = 0; i < selected.length;) {
+                        selected[0].classList.remove('selected');
+                    }
+                    var liList = document.getElementsByTagName("li");
+                    for (var i = 0; i < liList.length; i++) {
+                        if (liList[i] == e.target) {
+                            curentIndex = i;
+                        }
+                        if (liList[i] == previosLi) {
+                            previousIndex = i;
+                        }
+                    }
+                    if (curentIndex > previousIndex) {
+                        for (var j = previousIndex; j <= curentIndex; j++) {
+                            liList[j].className = 'selected';
+                        }
+                    } else {
+                        for (var j = curentIndex; j <= previousIndex; j++) {
+                            liList[j].className = 'selected';
+                        }
+                    }
+                }
+            } else {
+                var selected = document.getElementsByClassName('selected');
+                for (var i = 0; i < selected.length;) {
+                    selected[0].classList.remove('selected');
+                }
+                e.target.classList.add('selected');
+            }
+            previosLi = e.target;
+        }
+        // prevent selection with SHIFT key pressed
+        ul.onmousedown = function() {
+            return false;
+        };
+    </script>
+
+</body>
+
+</html>

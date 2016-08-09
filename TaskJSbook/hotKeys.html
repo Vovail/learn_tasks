@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <title>hot Keys</title>
+        <style>
+            #area,
+            #view {
+                height: 150px;
+                width: 400px;
+                font-family: arial;
+                font-size: 14px;
+            }
+
+            #view {
+                /* padding + border = 3px */
+                padding: 2px;
+                border: 1px solid black;
+            }
+
+            #area {
+                display: none;
+                /* replace padding with border (still 3px not to shift the contents) */
+
+                border: 3px groove blue;
+                padding: 0;
+            }
+            #area:focus {
+                outline: none;
+                /* remove focus border in Safari */
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <ul>
+            <li>Ctrl-E to start editing.</li>
+            <li>While editing: Ctrl-S to save, Esc to cancel.</li>
+        </ul>
+
+        <textarea id="area"></textarea>
+        <div id="view">Text</div>
+
+        <script type="text/javascript">
+            var area = document.getElementById('area');
+            var div = document.getElementById('view');
+
+            document.onkeydown = function(event) {
+                if (event.ctrlKey) {
+                    if (event.keyCode == "E".charCodeAt(0)) {
+                        div.style.display = 'none';
+                        area.style.display = 'block';
+                        area.focus();
+                        return false;
+                    }
+                }
+
+                if (event.ctrlKey) {
+                    if (event.keyCode == "S".charCodeAt(0)) {
+                        div.innerHTML = area.value;
+                        div.style.display = 'block';
+                        area.style.display = 'none';
+                        return false;
+                    }
+                }
+                if (event.keyCode === 27) {
+                    div.style.display = 'block';
+                    area.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+
+</html>

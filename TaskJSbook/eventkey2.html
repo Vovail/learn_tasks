@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <p>Нажмите одновременно "Q" и "W" (в любой раскладке).</p>
+    <script type="text/javascript">
+        document.onkeydown = function(e) {
+            if (pressed[e.keyCode]!==undefined) {pressed[e.keyCode] = true;}
+            for (var prop in pressed) {
+                if (prop != "action") {
+                    if (pressed[prop] == false) return;
+                } else continue;
+            }
+            pressed.action();
+            for (var prop in pressed) {
+                if (prop == "action") {continue;
+                } else {pressed[prop]=false};
+            }
+        }
+
+        document.onkeyup = function(e) {
+            pressed[e.keyCode] = false;
+            pressed = {};
+            runOnKeys(function() {
+                alert("Привет!")
+            }, "Q".charCodeAt(0), "W".charCodeAt(0), "E".charCodeAt(0));
+        }
+
+        function runOnKeys(func) {
+            pressed.action=func;
+            for (var i = 1; i < arguments.length; i++) {
+                pressed[arguments[i]] = false;
+            }
+        }
+
+        var pressed = {};
+        runOnKeys(function() {
+            alert("Привет!")
+        }, "Q".charCodeAt(0), "W".charCodeAt(0), "E".charCodeAt(0));
+    </script>
+</body>
+
+</html>

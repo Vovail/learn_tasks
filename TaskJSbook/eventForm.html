@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Percent</title>
+        <style>
+            td input,
+            td select {
+                width: 150px;
+            }
+
+            #diagram td {
+                vertical-align: bottom;
+                text-align: center;
+                padding: 10px;
+            }
+
+            #diagram div {
+                margin: auto;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        Калькулятор процентов, из расчёта 18% годовых.
+        <form name="calculator">
+            <table>
+                <tr>
+                    <td>Сумма</td>
+                    <td>
+                        <input name="money" type="text" value="10000">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Срок в месяцах</td>
+                    <td>
+                        <select name="months">
+                            <option value="3">3 (минимум)</option>
+                            <option value="6">6 (полгода)</option>
+                            <option value="12" selected>12 (год)</option>
+                            <option value="18">18 (1.5 года)</option>
+                            <option value="24">24 (2 года)</option>
+                            <option value="30">30 (2.5 года)</option>
+                            <option value="36">36 (3 года)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>С капитализацией</td>
+                    <td>
+                        <input name="capitalization" type="checkbox">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+        <table id="diagram">
+            <tr>
+                <th>Было:</th>
+                <th>Станет:</th>
+            </tr>
+            <tr>
+                <th id="money-before"></th>
+                <th id="money-after"></th>
+            </tr>
+            <tr>
+                <td>
+                    <div style="background: red;width:40px;height:100px"></div>
+                </td>
+                <td>
+                    <div style="background: green;width:40px;height:0" id="height-after"></div>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            // вспомогательная функция для получения символа из события keypress (вдруг понадобится))
+            function getChar(event) {
+                if (event.which == null) {
+                    if (event.keyCode < 32)
+                        return null;
+                    return String.fromCharCode(event.keyCode) // IE
+                }
+
+                if (event.which != 0 && event.charCode != 0) {
+                    if (event.which < 32)
+                        return null;
+                    return String.fromCharCode(event.which) // остальные
+                }
+
+                return null; // специальная клавиша
+            }
+
+            var money = document.querySelector('input[name="money"]');
+            var before = document.getElementById('money-before');
+            var after = document.getElementById('money-after');
+            var select = document.forms[0].querySelector('select[name="months"]');
+            var val = money.value;
+            before.innerHTML = val;
+
+            money.onkeypress = function(event) {
+                var key = getChar(event);
+                if (!+ key && key !== "0") {
+                    return false;
+                }
+            }
+            money.addEventListener('input', function() {
+                var val = money.value;
+                before.innerHTML = val;
+                var depoWithPercents = +val + persentCounter(val);
+                after.innerHTML = depoWithPercents;
+                var heightAfter = document.getElementById('height-after');
+                heightAfter.style.height = 100 * depoWithPercents / (+ val) + 'px';
+            })
+
+            document.forms[0].onchange = function() {
+                var val = money.value;
+                before.innerHTML = val;
+                var depoWithPercents = +val + persentCounter(val);
+                after.innerHTML = depoWithPercents;
+                var heightAfter = document.getElementById('height-after');
+                heightAfter.style.height = 100 * depoWithPercents / (+ val) + 'px';
+            }
+
+            function persentCounter(val) {
+                var capitalization = document.querySelector('input[name="capitalization"]');
+                var term = +findSelected(select).value;
+                if (!capitalization.checked) {
+                    return Math.round(+ val * 0.18 / 12 * term);
+                } else {
+                    return Math.round(+ val * (Math.pow(1.015, term) - 1));
+                }
+            }
+
+            function findSelected(select) {
+                for (var i = 0; i < select.options.length; i++) {
+                    if (select.options[i].selected) {
+                        return select.options[i];
+                    }
+                }
+            }
+        </script>
+
+    </body>
+
+</html>

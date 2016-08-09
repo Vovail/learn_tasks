@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Галерея</title>
+    <link rel="stylesheet" href="gallery.css">
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <p><img id="largeImg" src="images/img1-lg.jpg" alt="Large image"></p>
+    <div class="container">
+        <button class="arrow left">⇦</button>
+        <button class="arrow right">⇨</button>
+
+        <div id="thumbs">
+            <ul>
+                <!-- При наведении на изображение показывается встроенная подсказка браузера (title) -->
+                <li>
+                    <a href="images/img1-lg.jpg" title="Image 1"><img src="images/img1-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img2-lg.jpg" title="Image 2"><img src="images/img2-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img3-lg.jpg" title="Image 3"><img src="images/img3-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img4-lg.jpg" title="Image 4"><img src="images/img4-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img6-lg.jpg" title="Image 6"><img src="images/img6-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img6-lg.jpg" title="Image 6"><img src="images/img6-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img4-lg.jpg" title="Image 4"><img src="images/img4-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img2-lg.jpg" title="Image 2"><img src="images/img2-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img1-lg.jpg" title="Image 1"><img src="images/img1-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img2-lg.jpg" title="Image 2"><img src="images/img2-thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="images/img3-lg.jpg" title="Image 3"><img src="images/img3-thumb.jpg"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var thumbs = document.getElementById('thumbs');
+        var large = document.getElementById('largeImg');
+        thumbs.onclick = function(e) {
+                e.preventDefault();
+                if (e.target.tagName != "IMG") {
+                    return;
+                }
+                var link = event.target.parentElement;
+                if (link.href == large.src) {
+                    return;
+                }
+                large.src = link.href;
+            }
+            // slider script
+        function moveLeft() {
+            var ul = document.querySelector('ul');
+            pos = Math.min(pos + 4 * 112, 0);
+            ul.style.left = pos + 'px';
+        }
+
+        function moveRight() {
+            var ul = document.querySelector('ul');
+            pos = Math.max(pos - 4 * 112, -maxWidth + 4 * 112);
+            ul.style.left = pos + 'px';
+        }
+
+        var lis = document.getElementsByTagName('li');
+        var maxWidth = 112 * lis.length;
+        var pos = 0;
+        var arrowLeft = document.querySelector('.left');
+        arrowLeft.onclick = moveLeft;
+        var arrowRight = document.querySelector('.right');
+        arrowRight.addEventListener('click', moveRight);
+    </script>
+</body>
+
+</html>

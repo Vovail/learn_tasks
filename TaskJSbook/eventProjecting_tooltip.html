@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      height: 2000px;
+      /* подсказка должна работать независимо от прокрутки */
+    }
+    .tooltip {
+      position: absolute;
+      box-shadow: 0px 0px 5px grey;
+      background-color: white;
+      padding: 3px 5px;
+      /*top: 0px;*/
+    }
+    [data-tooltip] {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+  <p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+  <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+  <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+  <p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+
+  <script>
+    document.addEventListener('mouseover',function(event){
+      var target=event.target;
+      if(!target.getAttribute('data-tooltip')) {return;}
+      else {
+        var tooltip=document.createElement('div');
+        tooltip.classList.add('tooltip');
+        tooltip.innerHTML=target.getAttribute('data-tooltip');
+        document.body.insertBefore(tooltip, target);
+        var targetCoords=target.getBoundingClientRect();
+        var tooltipCoords=tooltip.getBoundingClientRect();
+        tooltipHeight=tooltipCoords.bottom-tooltipCoords.top;
+        if (targetCoords.top>tooltipHeight+10) {
+          tooltip.style.top=targetCoords.top-tooltipHeight-5+"px";
+        } else {
+          tooltip.style.top=document.body.scrollTop+targetCoords.bottom+5+"px";
+        }
+        tooltip.style.left=targetCoords.left+"px";
+      }
+    });
+    document.addEventListener('mouseout',function(event){
+      var target=event.target;
+      if(!target.getAttribute('data-tooltip')) {return;}
+      else {
+        var tooltip=document.getElementsByClassName('tooltip')[0];
+      tooltip.remove();
+      }
+    })
+  </script>
+
+</body>
+
+</html>

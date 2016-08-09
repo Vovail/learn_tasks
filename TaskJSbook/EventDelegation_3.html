@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="grid">
+        <thead>
+            <tr>
+                <th class="0">Возраст</th>
+                <th class="1">Имя</th>
+                <th class="2">isAdmin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>Вася</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Петя</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Женя</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Маша</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Илья</td>
+                <td>+</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var thead = document.querySelector('thead');
+        thead.onclick = function SortTable(event) {
+                if (event.target.tagName != "TH") {
+                    return;
+                }
+                var sortBy = +event.target.className;
+                var arrRows = [];
+                var tbody = document.querySelector('tbody');
+                var rows = tbody.rows;
+                var columnCount = rows[0].cells.length;
+                for (var i = 0; i < rows.length; i++) {
+                    var arrCells = [];
+                    for (var j = 0; j < columnCount; j++) {
+                        arrCells.push(rows[i].cells[j].innerHTML)
+                    }
+                    arrRows.push(arrCells);
+                }
+
+                arrRows.sort(function(a, b) {
+                        if (isNaN(+a[sortBy])) {
+                                if (a[sortBy] > b[sortBy]) {
+                                    return 1;
+                                } else {
+                                    return -1;
+                                };
+                            } else {
+                                if (+a[sortBy] > +b[sortBy]) {
+                                    return 1;
+                                } else {
+                                    return -1;
+                                };
+                            }
+                        })
+
+                    for (var i = 0; i < rows.length; i++) {
+                        for (var j = 0; j < columnCount; j++) {
+                            rows[i].cells[j].innerHTML = arrRows[i][j];
+                        }
+                    }
+                }
+    </script>
+
+</body>
+
+</html>

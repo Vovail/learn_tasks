@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style media="screen">
+        .hide {
+            display: none;
+        }
+
+        li {
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="tree">
+        <li>Животные
+            <ul>
+                <li>Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Рыбы
+            <ul>
+                <li>Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+                </li>
+                <li>Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            if (lis[i].children[0]) {
+                var span = document.createElement('span');
+                lis[i].insertBefore(span, lis[i].firstChild);
+                span.appendChild(span.nextSibling);
+            }
+        }
+
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', closeOpen);
+        ul.addEventListener('mouseover', hover);
+        ul.addEventListener('mouseout', hoverOut);
+
+        function hover(e) {
+            if (e.target.tagName == 'SPAN') {
+                if (e.target.parentNode.children[1]) {
+                    e.target.style.cssText = "cursor:pointer; font-weight:bold"
+                }
+            } else return;
+        }
+
+        function hoverOut(e) {
+            if (e.target.tagName == 'SPAN') {
+                if (e.target.parentNode.children[1]) {
+                    e.target.style.cssText = "cursor:pointer; font-weight:normal"
+                }
+            } else return;
+        }
+
+        function closeOpen(event) {
+            if (event.target.tagName == 'SPAN') {
+                if (event.target.parentNode.children[1]) {
+                    event.target.parentNode.children[1].classList.toggle('hide');
+
+                }
+            } else return;
+        }
+    </script>
+</body>
+
+</html>
