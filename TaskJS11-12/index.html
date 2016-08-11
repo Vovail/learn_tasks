@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>carusel jQ plugin</title>
+    <link rel="stylesheet" href="css/carousel.css">
+    <style media="screen">
+        .container {
+            margin: 20px 20px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // run plugin;
+            // first argument - is a count of pictures, that will be shown in page
+            // second argument - is a WIDTH of one picture;
+            $(document).carousel(3, 300);
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel-arrow-left">LEFT</div>
+        <div class="carousel-hider">
+            <ul class="carousel-list">
+                <li class="carousel-element a"><img src="images/5.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element b"><img src="images/2.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element c"><img src="images/3.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/4.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/1.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/6.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/7.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/8.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/9.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/10.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+                <li class="carousel-element"><img src="images/11.jpg" alt="picture">
+                    <p>caption of image</p>
+                </li>
+            </ul>
+        </div>
+        <div class="carousel-arrow-right">RIGHT</div>
+    </div>
+</body>
+
+</html>

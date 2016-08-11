@@ -111,10 +111,7 @@ body {
         position: absolute;
         z-index: 10;
         top: 0px;
-        /*  width: 0px;
-        height: 0px;*/
         background-color: rgba(54, 41, 62, 0.9);
-        /*overflow: hidden;*/
         box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
         border: solid 1px #051116;
         border-radius: 10px;

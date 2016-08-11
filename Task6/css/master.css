@@ -1,11 +1,5 @@
 @font-face {
     font-family: "Lucida Sans Unicode";
-    /*  src: url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.eot");
-    src: url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.eot?#iefix") format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.woff2") format("woff2"),
-    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.woff") format("woff"),
-    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.ttf") format("truetype"),
-    url("http://db.onlinewebfonts.com/t/bcccd674c3fe808a4b01b8914c6898d5.svg#Lucida Sans Unicode") format("svg");*/
     src: url(../fonts/LucidaSansUnicodeV1.woff2) format("woff2"), url(../fonts/LucidaSansUnicodeV1.woff) format("woff"), url(../fonts/l_10646.ttf) format("ttf");
 }
 body {
@@ -491,15 +485,12 @@ main {
     border: solid 1px #79878d;
     padding: 0px 0px 0px 0px;
     margin-bottom: 13px;
-    /*font-family: "Lucida Sans Unicode";*/
     font-size: 13px;
     line-height: 25px;
     color: #114165;
     overflow: hidden;
-    /* всё, что выходит за рамки блока обрезается */
     white-space: nowrap;
-    /* блок может содержать не более одной строки */
-}
+    }
 .leftmenu h2 img, .rightfindbrand h2 img {
     display: inline-block;
     padding: 0px 1px 0px 0px;
@@ -572,15 +563,13 @@ left: 1px;
     list-style-type: circle;
     padding-left: 0px;
     margin-left: 48px;
-    /*  font-size: 14px;
-    /*  line-height: 28px;*/
 }
 .leftmenu li a {
     text-decoration: none;
     font-size: 13px;
     line-height: 25px;
     color: #465961;
-    /*line-height: 16px;*/
+
 }
 .leftmenu a:hover {
     line-height: 25px;
@@ -677,8 +666,6 @@ label {
     vertical-align: middle;
     text-align: center;
     width: 160px;
-    /*padding-bottom: 15px;
-    margin: 12px 0px 0px 0px;*/
 }
 .goods>div h4 {
     font-size: 16px;

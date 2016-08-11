@@ -1,0 +1,47 @@
+.carousel-hider {
+    width: 720px;
+    overflow: hidden;
+    float: left;
+}
+.carousel-list {
+    list-style: none;
+    width: 10000px;
+    padding: 0px;
+    position: relative;
+}
+.carousel-element {
+    display: block;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    float: left;
+}
+.carousel-element img {
+    max-width: 200px; // input here the max-width of picture
+    border: 1px solid grey;
+    box-shadow: 0px 0px 8px 3px grey;
+}
+.carousel-arrow-left, .carousel-arrow-right {
+    float: left;
+    display: block;
+    border: 1px solid grey;
+    background-color: lightgrey;
+    padding: 5px;
+    margin-top: 50px;
+}
+.carousel-arrow-left:hover, .carousel-arrow-right:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+.carousel-arrow-left {
+    margin-right: 25px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    text-align: right;
+}
+.carousel-arrow-right {
+    margin-left: 25px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    text-align: left;
+}
