@@ -103,7 +103,7 @@
             return this.firstname + " " + this.lastname;
         },
         livingPlace: "Ivano-Frankivsk, Ukraine",
-        dateOfBirth: (new Date("1985, 12, 25")).toLocaleString("en", dateOptions),
+        dateOfBirth: (new Date("1980, 12, 25")).toLocaleString("en", dateOptions),
         phone: "+38-050-373-4002",
         email: "v.ilemsky@gmail.com",
         skype: "vovail80",
