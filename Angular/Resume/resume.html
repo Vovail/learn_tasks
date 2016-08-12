@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <title>Resume of Volodymyr Ilemskyi</title>
         <link rel="stylesheet" href="css/reset.css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
-
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/profileApp.js"></script>
     </head>
+
     <body ng-app="profileApp" ng-controller="resumeCTRL as ctrl">
         <header>
-            <img class="mainPhoto" src="img/Photo_thumb.jpg" alt="photo of {{ctrl.person.fullname()}}" title="photo of {{ctrl.person.fullname()}}"/>
+            <img class="mainPhoto" ng-src="{{ctrl.person.photoSrc}}" alt="photo of {{ctrl.person.fullname()}}" title="photo of {{ctrl.person.fullname()}}"/>
             <div class="generalinfo">
                 <h1>{{ctrl.person.fullname()}}</h1>
                 <div class="block">
@@ -37,43 +38,79 @@
             </div>
             <nav>
                 <ul class="tabs">
-                    <li class="active">skills</li>
-                    <li>work experience</li>
-                    <li>education</li>
-                    <li>additional information</li>
+                    <li ng-class="{active:ctrl.tab==='skills'}" ng-click="ctrl.setTab('skills')">skills</li>
+                    <li ng-class="{active:ctrl.tab==='work'}" ng-click="ctrl.setTab('work')">work experience</li>
+                    <li ng-class="{active:ctrl.tab==='education'}" ng-click="ctrl.setTab('education')">education</li>
+                    <li ng-class="{active:ctrl.tab==='other'}" ng-click="ctrl.setTab('other')">additional information</li>
                 </ul>
             </nav>
         </header>
         <main>
-            <div class="skills">
+            <div class="content" ng-show="ctrl.tab==='skills'">
                 <ul>
                     <li ng-repeat="elem in ctrl.person.skills">{{elem}}</li>
                 </ul>
-                <div class="examples">
-                    <h2>Examples of tasks during learning (HTML, CSS, Java Script):</h2>
-                    <ul>
-                        <li>Markup of webpages:
-                            <a href="http://vovail.github.io/Task%205/index.html">Cadastre
-                            </a>,
-                            <a href="http://vovail.github.io/Task6/index.html">Zazor</a>
-                        </li>
-                        <li>Adaptive murkup:
-                            <a href="http://vovail.github.io/Task7/index.html">Pingbuller</a>
-                        </li>
-                        <li>Java Script:
-                            <a href="http://vovail.github.io/TaskJSbook/EditTd/index.html">edit of table cell by click</a>,
-                            <a href="http://vovail.github.io/TaskJS5-6/timer.html">timer</a>,
-                            <a href="http://vovail.github.io/TaskJSbook/EventDelegation_3_v2 tableSort.html">sort of table</a>,
-                            <a href="http://vovail.github.io/TaskJSbook/calendar.html">creating HTML by Java Script</a>,
-                            <a href="http://vovail.github.io/TaskJSbook/Galery/gallery.html">gallery + slider</a>
-                        </li>
-                        <li>JQuery:
-                            <a href="http://vovail.github.io/TaskJS7-8/index.html">tabs</a>,
-                            <a href="http://vovail.github.io/TaskJS9-10/index.html">show menu and setup of select-plugin (not my)</a>
-                        </li>
-                    </ul>
-                </div>
+                <!-- ???dosn't work ng-include (from html-file)
+                      and dosn't work my directive -->
+                <!-- <ng-include="'examples-one.html'"></ng-include> -->
+                <!-- <examples-one></examples-one> -->
+                <h2>Examples of tasks during learning (HTML, CSS, Java Script):</h2>
+                <ul>
+                    <li>Markup of webpages:
+                        <a href="http://vovail.github.io/Task%205/index.html">Cadastre
+                        </a>,
+                        <a href="http://vovail.github.io/Task6/index.html">Zazor</a>
+                    </li>
+                    <li>Adaptive markup:
+                        <a href="http://vovail.github.io/Task7/index.html">Pingbuller</a>
+                    </li>
+                    <li>Java Script:
+                        <a href="http://vovail.github.io/TaskJSbook/EditTd/index.html">edit of table cell by click</a>,
+                        <a href="http://vovail.github.io/TaskJS5-6/timer.html">timer</a>,
+                        <a href="http://vovail.github.io/TaskJSbook/EventDelegation_3_v2 tableSort.html">sort of table</a>,
+                        <a href="http://vovail.github.io/TaskJSbook/calendar.html">creating HTML by Java Script</a>,
+                        <a href="http://vovail.github.io/TaskJSbook/Galery/gallery.html">gallery + slider</a>
+                    </li>
+                    <li>JQuery:
+                        <a href="http://vovail.github.io/TaskJS7-8/index.html">tabs</a>,
+                        <a href="http://vovail.github.io/TaskJS9-10/index.html">show menu and setup of select-plugin (not my)</a>
+                    </li>
+                </ul>
             </div>
+            <div class="content work" ng-show="ctrl.tab==='work'">
+                <input type="button" class="duties" ng-click="ctrl.toggleDuties()" value="Open/close Main duties:"/>
+                <article ng-repeat="key in ctrl.person.work">
+                    <h2>{{key.position}}</h2>
+                    <h4>{{key.period}}</h4>
+                    <h3>{{key.employer}}</h3>
+                    <p ng-show="{{key.subordinates}}">{{key.subordinates}}</p>
+                    <ul ng-show="ctrl.dutiesFlag">
+                        <li ng-repeat="elem in key.duties">{{elem}}</li>
+                    </ul>
+                </article>
+
+            </div>
+            <div class="content education" ng-show="ctrl.tab==='education'">
+                <article>
+                    <h2>{{ctrl.person.education.main.school}}</h2>
+                    <div>
+                        {{ctrl.person.education.main.specialty}}
+                    </div>
+                </article>
+                <article>
+                    <h2>Trainings:</h2>
+                    <ul>
+                        <li ng-repeat="course in ctrl.person.education.training">{{course}}</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="content" ng-show="ctrl.tab==='other'">
+                <article ng-repeat="part in ctrl.person.otherInfo">
+                    <h2>{{part.header}}</h2>
+                    <div>{{part.value}}</div>
+                </div>
+            </article>
         </main>
     </body>
+
 </html>
