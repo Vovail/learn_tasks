@@ -1,13 +1,18 @@
+[ng-cloak] {
+    display: none;
+}
 html {
-      overflow-y: scroll;
+    overflow-y: scroll;
 }
 body {
     position: relative;
     margin: 10px auto;
     max-width: 800px;
     background-color: #ddd;
+    border: 1px solid rgb(37, 37, 34);
+    box-shadow: 0 0 8px 3px rgba(63, 64, 63, 0.9);
 }
-header {
+.homeHeader {
     margin: 20px 20px 0px 20px;
 }
 .mainPhoto {
@@ -40,7 +45,7 @@ header {
 .value {
     font-weight: bold;
 }
-header nav {
+.homeHeader nav {
     clear: both;
 }
 .tabs {
@@ -69,14 +74,13 @@ header nav {
     color: rgb(10, 50, 50);
 }
 main {
-    margin-left: 20px;
-    margin-top: 6px;
+    margin: 6px 20px 20px 20px;
 }
 .content {
     font-size: 18px;
     line-height: 25px;
     border: 1px solid black;
-    max-width: 798px;
+    max-width: 788px;
     background-color: rgb(235, 235, 235);
     padding: 10px;
 }
@@ -96,7 +100,7 @@ main {
     padding-left: 10px;
 }
 .work article {
-  border-bottom: 1px dotted black;
+    border-bottom: 1px dotted black;
 }
 .work h2 {
     margin-bottom: 5px;
@@ -121,5 +125,34 @@ main {
     margin-bottom: 20px;
 }
 .content div {
-  margin-left: 15px;
+    margin-left: 15px;
+}
+li.header a {
+    display: block;
+    width: 100px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 50px;
+}
+.header a:hover {
+text-decoration: underline;
+}
+footer, header {
+    text-align: center;
+    background-image: linear-gradient(rgb(100, 100, 100), rgb(22, 22, 22));
+}
+footer ul, header ul {
+    height: 50px;
+    line-height: 50px;
+}
+.footer, .header {
+    margin: 0 10px;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+}
+li.footer a, .header a {
+    color: white;
+    font-weight: normal;
 }
