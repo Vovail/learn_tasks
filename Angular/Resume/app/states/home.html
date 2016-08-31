@@ -1,0 +1,58 @@
+<div class="homeHeader">
+    <img class="mainPhoto" ng-src="{{ctrl.person.photoSrc}}" alt="photo of {{ctrl.person.fullname}}" title="photo of {{ctrl.person.fullname}}"/>
+    <div class="generalinfo">
+        <h1>{{ctrl.person.fullname}}</h1>
+        <div class="block" ng-repeat="key in ctrl.person.generalInfo">
+            <div class="inline key">{{key.header}}</div>
+            <div class="inline value">{{key.value}}</div>
+        </div>
+    </div>
+    <nav>
+        <ul class="tabs">
+            <li ng-class="{active:ctrl.tab==='skills'}" ng-click="ctrl.setTab('skills')">skills</li>
+            <li ng-class="{active:ctrl.tab==='work'}" ng-click="ctrl.setTab('work')">work experience</li>
+            <li ng-class="{active:ctrl.tab==='education'}" ng-click="ctrl.setTab('education')">education</li>
+            <li ng-class="{active:ctrl.tab==='other'}" ng-click="ctrl.setTab('other')">additional information</li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <div class="content" ng-show="ctrl.tab==='skills'">
+        <ul>
+            <li ng-repeat="elem in ctrl.person.skills">{{elem}}</li>
+        </ul>
+        <examples-one></examples-one>
+    </div>
+    <div class="content work" ng-show="ctrl.tab==='work'">
+        <input type="button" class="duties" ng-click="ctrl.toggleDuties()" value="Open/close Main duties:"/>
+        <article ng-repeat="key in ctrl.person.work">
+            <h2>{{key.position}}</h2>
+            <h4>{{key.period}}</h4>
+            <h3>{{key.employer}}</h3>
+            <p ng-show="{{key.subordinates}}">{{key.subordinates}}</p>
+            <ul ng-show="ctrl.dutiesFlag">
+                <li ng-repeat="elem in key.duties">{{elem}}</li>
+            </ul>
+        </article>
+    </div>
+    <div class="content education" ng-show="ctrl.tab==='education'">
+        <article>
+            <h2>{{ctrl.person.education.main.school}}</h2>
+            <div>
+                {{ctrl.person.education.main.specialty}}
+            </div>
+        </article>
+        <article>
+            <h2>Trainings:</h2>
+            <ul>
+                <li ng-repeat="course in ctrl.person.education.training">{{course}}</li>
+            </ul>
+        </article>
+    </div>
+    <div class="content" ng-show="ctrl.tab==='other'">
+        <article ng-repeat="part in ctrl.person.otherInfo">
+            <h2>{{part.header}}</h2>
+            <div>{{part.value}}</div>
+        </div>
+    </article>
+</main>

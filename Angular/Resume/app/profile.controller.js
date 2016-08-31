@@ -1,15 +1,20 @@
 (function() {
     angular
         .module("profileApp")
-        .controller("resumeCTRL", resumeCTRL);
+        .controller("resumeCTRL", ['$http', resumeCTRL]);
 
-    resumeCTRL.$inject = ['userData'];
-
-    function resumeCTRL(userData) {
+    function resumeCTRL($http) {
         var vm = this;
-        vm.person = userData;
-        vm.tab = "skills";
 
+        $http.get('app/data/data.json')
+            .success(function(result) {
+                vm.person = result;
+            })
+            .error(function(result) {
+                console.log('error');
+            });
+
+        vm.tab = "skills";
         vm.setTab = function(activeTab) {
             vm.tab = activeTab;
         };
