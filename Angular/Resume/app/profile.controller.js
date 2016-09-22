@@ -3,17 +3,25 @@
         .module("profileApp")
         .controller("resumeCTRL", resumeCTRL);
 
-    resumeCTRL.$inject = ['userData'];
+    // resumeCTRL.$inject = ['userData'];
 
-    function resumeCTRL(userData) {
+    function resumeCTRL($http) {
         var vm = this;
-        vm.person = userData;
-        vm.tab = "skills";
+        vm.person = {};
 
-        vm.setTab = function(activeTab) {
-            vm.tab = activeTab;
-        };
+        $http.get('app/data/data.json')
+            .then(function(result) {
+                vm.person = result.data;
+                console.log(vm.person);
+            }, function() {
+                console.log('error');
+            })
 
+        // userData.getData().then(function(result) {
+        //     vm.person = result.data;
+        // }, function() {
+        //     console.log('error')
+        // });
         vm.dutiesFlag = false;
         vm.toggleDuties = function() {
             vm.dutiesFlag = !vm.dutiesFlag;
