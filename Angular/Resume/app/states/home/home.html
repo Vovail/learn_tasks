@@ -1,0 +1,63 @@
+<div class="homeHeader">
+    <img class="mainPhoto" ng-src="{{ctrl.person.photoSrc}}" alt="photo of {{ctrl.person.fullname}}" title="photo of {{ctrl.person.fullname}}"/>
+    <div class="generalinfo">
+        <h1>{{ctrl.person.fullname}}</h1>
+        <div class="block" ng-repeat="key in ctrl.person.generalInfo">
+            <div class="inline key">{{key.header}}</div>
+            <div class="inline value">{{key.value}}</div>
+        </div>
+    </div>
+    <nav></nav>
+</div>
+<main>
+    <div>
+        <uib-tabset active="active">
+            <uib-tab index="0" heading="SKILLS">
+                <div class="content">
+                    <ul>
+                        <li ng-repeat="elem in ctrl.person.skills">{{elem}}</li>
+                    </ul>
+                    <examples-one></examples-one>
+                </div>
+            </uib-tab>
+            <uib-tab index="1" heading="WORK">
+                <div class="content work">
+                    <input type="button" class="duties" ng-click="ctrl.toggleDuties()" value="Open/close Main duties:"/>
+                    <article ng-repeat="key in ctrl.person.work">
+                        <h2>{{key.position}}</h2>
+                        <h4>{{key.period}}</h4>
+                        <h3>{{key.employer}}</h3>
+                        <p ng-show="{{key.subordinates}}">{{key.subordinates}}</p>
+                        <ul ng-show="ctrl.dutiesFlag">
+                            <li ng-repeat="elem in key.duties">{{elem}}</li>
+                        </ul>
+                    </article>
+                </div>
+            </uib-tab>
+            <uib-tab index="2" heading="EDUCATION">
+                <div class="content education">
+                    <article>
+                        <h2>{{ctrl.person.education.main.school}}</h2>
+                        <div>
+                            {{ctrl.person.education.main.specialty}}
+                        </div>
+                    </article>
+                    <article>
+                        <h2>Trainings:</h2>
+                        <ul>
+                            <li ng-repeat="course in ctrl.person.education.training">{{course}}</li>
+                        </ul>
+                    </article>
+                </div>
+            </uib-tab>
+            <uib-tab index="3" heading="OTHER">
+                <div class="content">
+                    <article ng-repeat="part in ctrl.person.otherInfo">
+                        <h2>{{part.header}}</h2>
+                        <div>{{part.value}}</div>
+                    </article>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+
+    </main>

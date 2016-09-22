@@ -1,24 +1,27 @@
 (function() {
     angular
         .module("profileApp")
-        .controller("resumeCTRL", ['$http', resumeCTRL]);
+        .controller("resumeCTRL", resumeCTRL);
+
+    // resumeCTRL.$inject = ['userData'];
 
     function resumeCTRL($http) {
         var vm = this;
+        vm.person = {};
 
         $http.get('app/data/data.json')
-            .success(function(result) {
-                vm.person = result;
-            })
-            .error(function(result) {
+            .then(function(result) {
+                vm.person = result.data;
+                console.log(vm.person);
+            }, function() {
                 console.log('error');
-            });
+            })
 
-        vm.tab = "skills";
-        vm.setTab = function(activeTab) {
-            vm.tab = activeTab;
-        };
-
+        // userData.getData().then(function(result) {
+        //     vm.person = result.data;
+        // }, function() {
+        //     console.log('error')
+        // });
         vm.dutiesFlag = false;
         vm.toggleDuties = function() {
             vm.dutiesFlag = !vm.dutiesFlag;

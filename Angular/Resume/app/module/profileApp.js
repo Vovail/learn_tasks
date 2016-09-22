@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module("profileApp", ['ui.router'])
+        .module("profileApp", ['ui.router', 'ui.bootstrap'])
         .config(routeConfig);
 
     function routeConfig($stateProvider, $urlRouterProvider) {
@@ -15,16 +15,17 @@
             })
             .state('main.home', {
                 url: '/home',
-                templateUrl: 'app/states/home.html',
+                templateUrl: 'app/states/home/home.html',
                 controller: 'resumeCTRL as ctrl'
             })
             .state('main.photo', {
                 url: '/photo',
-                templateUrl: 'app/states/photos.html'
+                templateUrl: 'app/states/photos/photos.html',
+                controller: "CarouselDemoCtrl as carousel"
             })
             .state('main.feedback', {
                 url: '/feedback',
-                templateUrl: 'app/states/feedback.html'
+                templateUrl: 'app/states/feedback/feedback.html'
             });
     }
 })();
