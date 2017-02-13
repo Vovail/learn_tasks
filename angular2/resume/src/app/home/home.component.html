@@ -1,0 +1,10 @@
+<main class="container home-container">
+  <img src="../../assets/photo_small.jpg" alt="photo of Volodymyr Ilemskyi" class="photo">
+  <md-list>
+    <md-list-item *ngFor="let data of commonInfo" class="data-line">
+      <span class="data-header"> {{data.header}} </span>
+      <span class="data-value"> {{data.value}} </span>
+    </md-list-item>
+  </md-list>
+</main>
+<app-quotes></app-quotes>
